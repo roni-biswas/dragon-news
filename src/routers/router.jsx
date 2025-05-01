@@ -13,7 +13,7 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        index: "category/:id",
+        path: "category/:id",
         Component: CategoryNews,
       },
     ],
