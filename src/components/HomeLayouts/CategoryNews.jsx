@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router";
+import NewsCard from "../NewsCard";
 
 const CategoryNews = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // string
   const data = useLoaderData();
   const [categoryNews, setCategoryNews] = useState([]);
 
@@ -23,7 +24,15 @@ const CategoryNews = () => {
 
   return (
     <div>
-      <h1>This is an category news - {categoryNews.length}</h1>
+      <h2 className="text-primary font-semibold text-xl mb-6">
+        Total <span className="text-secondary">{categoryNews.length}</span> news
+        Found
+      </h2>
+      <div className="grid grid-cols-1 gap-5">
+        {categoryNews.map((news) => (
+          <NewsCard key={news.id} news={news} />
+        ))}
+      </div>
     </div>
   );
 };
