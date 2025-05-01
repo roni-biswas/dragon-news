@@ -5,6 +5,7 @@ import {
   FaBookmark,
   FaRegBookmark,
 } from "react-icons/fa";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const { title, author, thumbnail_url, details, total_view, rating, id } =
@@ -48,12 +49,12 @@ const NewsCard = ({ news }) => {
         <p className="text-gray-700 mt-3">
           {details.length > 250 ? `${details.slice(0, 250)}... ` : details}
           {details.length > 250 && (
-            <a
-              href={`/news/${id}`}
+            <Link
+              to={`/news-details/${id}`}
               className="text-blue-500 font-medium hover:underline"
             >
               Read More
-            </a>
+            </Link>
           )}
         </p>
       </div>
