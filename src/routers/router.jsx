@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: "category/:id",
         Component: CategoryNews,
+        hydrateFallbackElement: (
+          <span className="loading loading-dots loading-xl"></span>
+        ),
+        loader: () => fetch("/news.json"),
       },
     ],
   },
