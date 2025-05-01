@@ -7,8 +7,8 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const photo = e.target.photo.value;
+    // const name = e.target.name.value;
+    // const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     // console.log({ name, photo, email, password });
