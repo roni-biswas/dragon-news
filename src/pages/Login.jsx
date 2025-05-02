@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import Loading from "../components/Loading";
 
 const Login = () => {
+  const [error, setError] = useState();
+  const location = useLocation();
   const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -15,11 +18,11 @@ const Login = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user);
-        alert("Successfully Logged-In User!");
-        navigate("/");
+        <Loading />;
+        navigate(location?.state || "/");
       })
       .catch((error) => {
-        alert(error.code);
+        setError(error.code);
       });
   };
   return (
@@ -46,6 +49,11 @@ const Login = () => {
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
+          {error && (
+            <p className="text-red-400 text-sm">
+              Wrong! Your email or password
+            </p>
+          )}
           <button type="submit" className="btn btn-primary mt-4">
             Login
           </button>
