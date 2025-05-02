@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AuthLayout from "../layouts/AuthLayout";
 import NewsDetails from "../pages/NewsDetails";
+import PrivetRoute from "../provider/PrivetRoute";
 
 const router = createBrowserRouter([
   {
@@ -42,9 +43,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/news-details/:id",
-    Component: NewsDetails,
+    element: (
+      <PrivetRoute>
+        <NewsDetails />
+      </PrivetRoute>
+    ),
     hydrateFallbackElement: (
-      <span className="loading loading-dots loading-xl"></span>
+      <div className="flex justify-center min-h-screen items-center">
+        <span className="loading loading-bars loading-xl"></span>;
+      </div>
     ),
     loader: () => fetch("/news.json"),
   },
