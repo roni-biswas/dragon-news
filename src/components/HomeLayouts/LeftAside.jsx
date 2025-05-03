@@ -1,12 +1,11 @@
 import React, { Suspense } from "react";
 import Categories from "../Categories";
+import Loading from "../Loading";
 
 const LeftAside = () => {
   return (
     <>
-      <Suspense
-        fallback={<span className="loading loading-dots loading-xl"></span>}
-      >
+      <Suspense fallback={<Loading />}>
         <Categories />
       </Suspense>
     </>
