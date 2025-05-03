@@ -3,20 +3,29 @@ import { Link } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const name = e.target.name.value;
-    // const photo = e.target.photo.value;
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    // console.log({ name, photo, email, password });
 
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
+        // update user profile
+        if (user) {
+          updateUserProfile({ displayName: name, photoURL: photo })
+            .then(() => {
+              console.log("User profile Updated");
+            })
+            .catch((error) => {
+              console.log(error.code);
+            });
+        }
       })
       .catch((error) => {
         const errorCode = error.code;
