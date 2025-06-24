@@ -1,12 +1,33 @@
-# React + Vite
+# Dragon News
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site → **https://dragon-news-breaking-e0480.web.app**
 
-Currently, two official plugins are available:
+A clean, mobile-first news app built with **React 19**, **React Router 7**, **Tailwind CSS 4 + DaisyUI 5**, and **Firebase 11**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ What It Does
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Browse categorized news articles
+- Log in / register with Firebase Auth
+- Protected routes for signed-in users
+- Fully responsive UI
+
+---
+
+## 🛠  Tech Used
+
+- **React** – UI
+- **React Router** – navigation
+- **Tailwind CSS + DaisyUI** – styling & components
+- **Firebase** – auth + hosting
+- Extras: **react-hot-toast**, **react-icons**, **Swiper**
+
+---
+
+## ▶️ Quick Start
+
+```bash
+git clone https://github.com/roni-biswas/dragon-news.git
+cd dragon-news
+npm install
